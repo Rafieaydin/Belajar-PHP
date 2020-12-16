@@ -9,7 +9,8 @@
     <h1>Buat Account Baru!</h1>
     <h3>Sign Up Form</h3>
     <form action="/welcome" method="post">
-    <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>">
+    {{-- <input type = "hidden" name = "_token" value = "<?php echo csrf_token() ?>"> --}}
+    @csrf
     <p>First name:</p>
     <input type="text" name="nama_awal">
     <p>Last name:</p>
