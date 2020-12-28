@@ -1,0 +1,8 @@
+Note : tambah data harus sesuai dengan profile kalau tidak aka akan terjadi eror karena sudah berelasi dengan profile
+
+fitur : - crud basic
+ 	- relasi antar table di query
+
+(admin)
+user = Yuhnpa@gmail.com
+password = rahasia
