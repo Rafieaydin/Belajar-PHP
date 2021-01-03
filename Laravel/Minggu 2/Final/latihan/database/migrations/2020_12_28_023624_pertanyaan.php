@@ -21,9 +21,6 @@ class Pertanyaan extends Migration
             $table->integer('jawaban_tepat_id')->nullable();
             $table->integer('profile_id');
         });
-        Schema::table('pertanyaan', function (Blueprint $table) {
-            $table->foreign('profile_id')->references('id')->on('profile');
-        });
     }
 
     /**

@@ -26,7 +26,7 @@
                         <td>{{$loop->iteration}}</td>
                         <td>{{$tanya->user->profile->nama_lengkap}}</td>
                             <td>{{$tanya->judul}}</td>
-                            <td>{{$tanya->isi}}</td>
+                            <td>{!!$tanya->isi!!}</td>
                         </tr>
 
                     @endforeach

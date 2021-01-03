@@ -53,7 +53,7 @@ class profileController extends Controller
         $profile = new Profile;
 
         $user = new User;
-        $user->role = 'user';
+        $user->role = 'users';
         $user->name = $request->username; // mengambil dari requst name="nama
         $user->email = $request->email;
         $user->password = Hash::make($request->password);

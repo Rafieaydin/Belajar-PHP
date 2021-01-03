@@ -29,7 +29,7 @@
                             {{$tanya->judul}}
                         </td>
                         <td>
-                            {{$tanya->isi}}
+                            {!!$tanya->isi!!}
                         </td>
 
                         <td>{{ !empty($tanya->tepat->isi) ? $tanya->tepat->isi:'Jawaban belum benar' }}

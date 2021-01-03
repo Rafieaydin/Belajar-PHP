@@ -28,8 +28,8 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$usr->user->profile->nama_lengkap}}</td>
                             <td>{{$usr->pertanyaan->judul}}</td>
-                            <td>{{$usr->pertanyaan->isi}}</td>
-                            <td>{{$usr->isi}}</td>
+                            <td>{!!$usr->pertanyaan->isi!!}</td>
+                            <td>{!!$usr->isi!!}</td>
                             <td>{{!empty($usr->tepat->isi) ? $usr->tepat->isi:'Jawaban belum benar'}}</td>
                         </tr>
                     @endforeach

@@ -49,9 +49,9 @@
           </div>
           <div class="wrap-login100 col-6">
             @yield('content')
-          </div> 
-        </div>       
-      </main> 
+          </div>
+        </div>
+      </main>
     </div>
 </body>
 </html>

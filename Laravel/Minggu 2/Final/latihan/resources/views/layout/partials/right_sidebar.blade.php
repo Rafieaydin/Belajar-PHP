@@ -34,7 +34,7 @@
         </div>
     </div>
 
-  <div class="description mb-3" style="position: -webkit-sticky; position: sticky; top: 565px;">
+  {{-- <div class="description mb-3" style="position: -webkit-sticky; position: sticky; top: 565px;">
     <p class="text-dark">Copyright &copy; 2020 Twitter All rights reserved.</p>
-  </div>
+  </div> --}}
 </div>

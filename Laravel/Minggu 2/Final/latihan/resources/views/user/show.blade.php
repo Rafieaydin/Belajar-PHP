@@ -1,4 +1,7 @@
     @extends('layout.home')
+    @section('title')
+        <title>Twitter</title>
+    @endsection
     @section('header')
       <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
     @endsection
@@ -14,7 +17,7 @@
                     </div>
                     <!-- /.user-block -->
                     <?php $if_null = App\Models\Pertanyaan::where('user_id','=', $pertanyaan->user->id)->first() ?>
-                    @if ($if_null->user_id==Auth::user()->id)
+                    @if ($if_null->user_id==Auth::user()->id || Auth::user()->role === 'admin')
                     <div class="card-tools">
                     <div class="btn-group">
                         <button type="button" class="btn btn-tool dropdown-toggle text-dark" data-toggle="dropdown">
@@ -32,7 +35,6 @@
                     @else
 
                     @endif
-
                     <!-- /.card-tools -->
                 </div>
                 <!-- /.card-header -->
@@ -105,17 +107,27 @@
                     <span class="description">{{$jwb->created_at->diffForHumans()}}</span>
                     </div>
                     <!-- /.user-block -->
+                    <?php $if_null = App\Models\jawaban::where('user_id','=', $jwb->user->id)->first() ?>
+                    @if ($if_null->user_id==Auth::user()->id || Auth::user()->role == 'admin')
                     <div class="card-tools">
-                    <button type="button" class="btn btn-tool" title="Mark as read">
-                        <i class="far fa-circle"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                        <i class="fas fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                        <i class="fas fa-times"></i>
-                    </button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-tool dropdown-toggle text-dark" data-toggle="dropdown">
+                        <i class="fas fa-wrench"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                        <a href="/forum/edit2/{{$jwb->id}}" class="dropdown-item">Edit</a>
+                        </form>
+                        <form action="/forum/hapus/{{$jwb->id}}" method="POST">
+                            @method('delete')
+                            @csrf
+                            <input type="submit" value="Delete" class="dropdown-item btn btn-light btn-sm">
+                        </form>
+                        </div>
                     </div>
+                    </div>
+                    @else
+
+                    @endif
                     <!-- /.card-tools -->
                 </div>
                 <!-- /.card-header -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Jan 2021 pada 00.31
+-- Waktu pembuatan: 31 Des 2020 pada 13.52
 -- Versi server: 10.4.14-MariaDB
 -- Versi PHP: 7.4.10
 
@@ -40,20 +40,6 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `follower`
---
-
-CREATE TABLE `follower` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `follow_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `jawaban`
 --
 
@@ -71,56 +57,10 @@ CREATE TABLE `jawaban` (
 --
 
 INSERT INTO `jawaban` (`id`, `isi`, `created_at`, `updated_at`, `pertanyaan_id`, `user_id`) VALUES
-(25, '<p>enfjenfjef 1</p>', '2021-01-01 01:15:26', '2021-01-01 16:16:27', 52, 13),
-(27, '<p>jawaban</p>', '2021-01-01 01:30:05', '2021-01-01 01:30:05', 70, 15),
-(28, 'jawban', '2021-01-01 16:16:39', '2021-01-01 16:16:39', 51, 2),
-(29, '<p>ini jawaban</p>', '2021-01-01 16:17:47', '2021-01-01 16:17:47', 72, 13);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `komentar_jawaban`
---
-
-CREATE TABLE `komentar_jawaban` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `isi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `jawaban_id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `komentar_jawaban`
---
-
-INSERT INTO `komentar_jawaban` (`id`, `isi`, `created_at`, `updated_at`, `jawaban_id`, `user_id`) VALUES
-(13, 'ini komentar jawaban', '2021-01-01 01:30:14', '2021-01-01 01:30:14', 27, 15),
-(14, 'ini komentar jawaban', '2021-01-01 16:17:57', '2021-01-01 16:17:57', 29, 13);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `komentar_pertanyaan`
---
-
-CREATE TABLE `komentar_pertanyaan` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `isi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `pertanyaan_id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` bigint(20) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data untuk tabel `komentar_pertanyaan`
---
-
-INSERT INTO `komentar_pertanyaan` (`id`, `isi`, `created_at`, `updated_at`, `pertanyaan_id`, `user_id`) VALUES
-(7, 'ini adalah komentar', '2021-01-01 01:29:28', '2021-01-01 01:29:28', 70, 15),
-(8, 'ini komentar', '2021-01-01 16:17:35', '2021-01-01 16:17:35', 72, 13);
+(12, '<p><strong>ini jawaban 2</strong></p>', '2020-12-30 03:17:24', '2020-12-30 06:01:15', 50, 2),
+(13, 'ini jawaban', '2020-12-30 03:20:07', '2020-12-30 03:20:07', 50, 2),
+(14, 'ini jawaban', '2020-12-30 05:23:55', '2020-12-30 05:23:55', 50, 2),
+(15, 'ini jawaban', '2020-12-30 05:31:11', '2020-12-30 05:31:11', 50, 2);
 
 -- --------------------------------------------------------
 
@@ -146,10 +86,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2020_12_28_030333_profile', 1),
 (6, '2020_12_29_000451_jawaban', 1),
 (7, '2020_12_30_060103_pertanyaan_tag', 2),
-(8, '2020_12_30_060511_create_tag_table', 3),
-(9, '2021_01_01_025950_komentar_pertanyaan', 4),
-(10, '2021_01_01_033026_komentar_jawaban', 5),
-(11, '2021_01_01_041346_follower', 6);
+(8, '2020_12_30_060511_create_tag_table', 3);
 
 -- --------------------------------------------------------
 
@@ -184,13 +121,13 @@ CREATE TABLE `pertanyaan` (
 --
 
 INSERT INTO `pertanyaan` (`id`, `judul`, `isi`, `created_at`, `updated_at`, `jawaban_tepat_id`, `user_id`) VALUES
+(50, 'tolong bantu saya', 'isi dari pertanyaan 2', '2020-12-30 00:58:12', '2020-12-30 00:58:12', NULL, 2),
 (51, 'tolong bantu saya', 'isi dari pertanyaan 2', '2020-12-30 01:02:09', '2020-12-30 01:02:09', NULL, 2),
 (52, 'tolong bantu sayaaaaa', 'isi dari pertanyaan 2', '2020-12-30 01:41:37', '2020-12-30 01:41:37', NULL, 4),
 (53, 'tolong bantu saya', 'isi dari pertanyaan 2', '2020-12-30 03:02:47', '2020-12-30 03:02:47', NULL, 4),
 (54, 'tolong bantu saya', '1 + 1 berapa? 5', '2020-12-30 03:04:24', '2020-12-30 04:40:15', NULL, 2),
-(70, 'ini adalah judul', '<p>ini perjanyaan</p>', '2021-01-01 01:28:07', '2021-01-01 01:28:07', NULL, 13),
-(71, 'tolong bantu saya', 'ini isi', '2021-01-01 16:16:01', '2021-01-01 16:16:16', NULL, 8),
-(72, 'ini judul pertama', '<p>inin sii</p>', '2021-01-01 16:17:23', '2021-01-01 16:17:23', NULL, 13);
+(59, 'tolong bantu sayaaaaaa', '<p><strong>vvghvgvghvg</strong></p>', '2020-12-30 04:34:36', '2020-12-30 04:34:36', NULL, 2),
+(60, 'tolong bantu saya', '<p><strong>rgwgwrgwrggw</strong></p>', '2020-12-30 04:35:00', '2020-12-30 04:39:53', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -211,6 +148,10 @@ CREATE TABLE `pertanyaan_tag` (
 --
 
 INSERT INTO `pertanyaan_tag` (`id`, `pertanyaan_id`, `tag_id`, `created_at`, `updated_at`) VALUES
+(149, 50, 1, NULL, NULL),
+(150, 50, 2, NULL, NULL),
+(151, 50, 3, NULL, NULL),
+(152, 50, 4, NULL, NULL),
 (153, 51, 5, NULL, NULL),
 (154, 51, 6, NULL, NULL),
 (155, 51, 7, NULL, NULL),
@@ -228,16 +169,14 @@ INSERT INTO `pertanyaan_tag` (`id`, `pertanyaan_id`, `tag_id`, `created_at`, `up
 (167, 54, 2, NULL, NULL),
 (168, 54, 3, NULL, NULL),
 (169, 54, 4, NULL, NULL),
-(228, 70, 1, NULL, NULL),
-(229, 70, 2, NULL, NULL),
-(230, 70, 3, NULL, NULL),
-(231, 70, 4, NULL, NULL),
-(232, 71, 1, NULL, NULL),
-(233, 71, 2, NULL, NULL),
-(234, 71, 3, NULL, NULL),
-(235, 71, 4, NULL, NULL),
-(236, 72, 13, NULL, NULL),
-(237, 72, 14, NULL, NULL);
+(184, 59, 1, NULL, NULL),
+(185, 59, 2, NULL, NULL),
+(186, 59, 3, NULL, NULL),
+(187, 59, 4, NULL, NULL),
+(188, 60, 1, NULL, NULL),
+(189, 60, 2, NULL, NULL),
+(190, 60, 3, NULL, NULL),
+(191, 60, 4, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -264,11 +203,8 @@ INSERT INTO `profile` (`id`, `nama_lengkap`, `phone`, `foto`, `user_id`, `create
 (2, 'admin', NULL, 'default.jpg', 4, '2020-12-29 20:39:50', '2020-12-29 20:56:08'),
 (5, 'test', NULL, 'default.jpg', 8, '2020-12-31 05:41:43', '2020-12-31 05:41:43'),
 (6, 'test1', NULL, 'default.jpg', 9, '2020-12-31 05:46:47', '2020-12-31 05:46:47'),
-(7, 'test2', NULL, '336-3365133_back-end-developer-icon-hd-png-download.png', 11, '2020-12-31 05:48:44', '2021-01-01 16:15:39'),
-(9, 'Yuhnpa', NULL, 'default.jpg', 13, '2020-12-31 14:34:25', '2020-12-31 14:34:25'),
-(10, 'Yuhnpa1', NULL, 'default.jpg', 14, '2020-12-31 23:41:39', '2020-12-31 23:41:39'),
-(11, 'Yahnpa', NULL, 'default.jpg', 15, '2021-01-01 01:29:05', '2021-01-01 01:29:05'),
-(12, 'admin3', NULL, '51CMk-3RcwL._SX425_.jpg', 16, '2021-01-01 16:15:16', '2021-01-01 16:15:16');
+(7, 'test2', NULL, 'default.jpg', 11, '2020-12-31 05:48:44', '2020-12-31 05:48:44'),
+(8, 'test3', NULL, 'default.jpg', 12, '2020-12-31 05:50:17', '2020-12-31 05:50:17');
 
 -- --------------------------------------------------------
 
@@ -298,10 +234,7 @@ INSERT INTO `tags` (`id`, `tag_name`, `created_at`, `updated_at`) VALUES
 (8, 'pivot', '2020-12-30 01:02:09', '2020-12-30 01:02:09'),
 (9, 'selesai', '2020-12-30 01:02:09', '2020-12-30 01:02:09'),
 (10, 'gergergerg', '2020-12-30 04:32:15', '2020-12-30 04:32:15'),
-(11, 'vwevewvwevwev', '2020-12-30 04:32:15', '2020-12-30 04:32:15'),
-(12, 'fwefwefwef', '2020-12-31 16:46:28', '2020-12-31 16:46:28'),
-(13, 'ini', '2021-01-01 16:17:23', '2021-01-01 16:17:23'),
-(14, 'hastag', '2021-01-01 16:17:23', '2021-01-01 16:17:23');
+(11, 'vwevewvwevwev', '2020-12-30 04:32:15', '2020-12-30 04:32:15');
 
 -- --------------------------------------------------------
 
@@ -327,14 +260,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `role`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (2, 'admin', 'admin', 'admin1@gmail.com', NULL, '$2y$10$8I1skKDjaenOSLHsnvmWy.Akk6HX2KPLgiemTjgtB3NasbG0Ciubu', '3S2hyswjcPEu4CbNJ5cDOSzdM2APjh6UjpjmzHJ1hZWt3yCsIm49jZoHWMtM', NULL, NULL),
-(4, 'admin', 'admin', 'admin@gmail.com', NULL, '$2y$10$3Nv6I8e4MOg1zhZGBFCA4.FuYLBC1WmHnIVc3Mr1kF6tYA2NMWZ9C', 'aSb0VFwgFCVQ38bMBYPQgFawqJE8nTvVzEGGr3EQhWaae8mya9URFk8C3pLR', '2020-12-29 20:39:50', '2020-12-29 20:56:08'),
+(4, 'admin', 'users', 'admin@gmail.com', NULL, '$2y$10$3Nv6I8e4MOg1zhZGBFCA4.FuYLBC1WmHnIVc3Mr1kF6tYA2NMWZ9C', 'dnS6sRoh3QKNgXDY6CgiYDRSedpv09wic3Vcjdpvs0qvrzt94sx6MzOZV880', '2020-12-29 20:39:50', '2020-12-29 20:56:08'),
 (8, 'test', 'users', 'test@gmail.com', NULL, '$2y$10$HvxiCumeAkpKgi/6TF6feugbYhDmI6l85s24ez8en3fyRQX78B71q', '8SagqR16xG2dfhgRRvZUiefmBHBDi6WpgKfbY05nvTHsgPhfAPGOQ2p4QQEe', '2020-12-31 05:41:43', '2020-12-31 05:41:43'),
 (9, 'test1', 'users', 'test1@gmail.com', NULL, '$2y$10$A4AbY0FUgymJzX16FkZDF.WTuFRshwfiV/PkD1qYVrjtFf0ztS2OS', 'lL31At3gTKEg1sFemQbh4CbErDQdGE3ldYcx9rjDuO6DCbenfZ1utKK7R8l0', '2020-12-31 05:46:47', '2020-12-31 05:46:47'),
-(11, 'test2', 'users', 'test2@gmail.com', NULL, '$2y$10$lO64qDrkDr75IBES5mkn3eMUVVPDSGFdefz.GCc.YUPUdWlXyhWtu', 'Dd2iRI847NABiyIouaFJygplmvbZVJpqFf9ARPgF9E5Q2SKcWTnp3UjUiiBK', '2020-12-31 05:48:44', '2021-01-01 16:15:39'),
-(13, 'Yuhnpa', 'users', 'Yuhnpa@gmail.com', NULL, '$2y$10$h.GTZw/8EpZTjvQGOm0eNOF3C9w/TZFH/INeX9G0BCddfssnKeMte', 'JMR5FkV8igyucErelQTL6GDKUx4oHwA9xnjHS93OrxYFRq6M8eNvCsQzlOhY', '2020-12-31 14:34:25', '2020-12-31 14:34:25'),
-(14, 'Yuhnpa1', 'users', 'Yuhnpa1@gmail.com', NULL, '$2y$10$bt4p.5H548c0j2iLfFphquvIYYuNrA5RPV/mhaaLBbxXWeWIr232y', 'FbltlIpImg7G40lEYNWXVbzqZduti0fIhlxUTlvWdraEiUu4GCdNlzC9SqAR', '2020-12-31 23:41:39', '2020-12-31 23:41:39'),
-(15, 'Yahnpa', 'users', 'Yahnpa@gmail.com', NULL, '$2y$10$h1s4XVZg4dx6kWKDFAdBEeL.eXrKeb5hFfC8XDFa8/CH5KFQxD6em', 'D1S0eA6P9PhsWdtXkfp0LTZjd0A70kLcSXp3ccAFRWU0oC7BIYRLDZJU2pbA', '2021-01-01 01:29:05', '2021-01-01 01:29:05'),
-(16, 'admin', 'user', 'admin4@gmail.com', NULL, '$2y$10$yuZkZjAvVBP6NEKjAEnX3OL5p5gxziBl4fVowGmR2uBTjgsfoECU.', 'czkMMie42ci1KUYloxKzra2w5nkU5qi9YYUlsDF0ABiNG6Bmk9hnoefUDnsA', '2021-01-01 16:15:16', '2021-01-01 16:15:16');
+(11, 'test2', 'users', 'test2@gmail.com', NULL, '$2y$10$3ZFz1qC1mGbEya5JM9stieM7pbBezDjH605qRC.LwxnjJ.uoc9hNq', 'Dd2iRI847NABiyIouaFJygplmvbZVJpqFf9ARPgF9E5Q2SKcWTnp3UjUiiBK', '2020-12-31 05:48:44', '2020-12-31 05:48:44'),
+(12, 'test3', 'users', 'test3@gmail.com', NULL, '$2y$10$076Lm8QPICaI6jq6SXIeqO7WF1.rWM3YgnkUhTdxKZTbCyzys57FK', 'P5uyF5Mu08mkPzeTK0YjgSjBhKHZCaahnIMAtK1vtNhr2YYaTBQjERM33rSp', '2020-12-31 05:50:16', '2020-12-31 05:50:16');
 
 --
 -- Indexes for dumped tables
@@ -348,35 +278,12 @@ ALTER TABLE `failed_jobs`
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indeks untuk tabel `follower`
---
-ALTER TABLE `follower`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
-
---
 -- Indeks untuk tabel `jawaban`
 --
 ALTER TABLE `jawaban`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `pertanyaan_id` (`pertanyaan_id`);
-
---
--- Indeks untuk tabel `komentar_jawaban`
---
-ALTER TABLE `komentar_jawaban`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `komentar_jawaban_ibfk_1` (`jawaban_id`);
-
---
--- Indeks untuk tabel `komentar_pertanyaan`
---
-ALTER TABLE `komentar_pertanyaan`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `pertanyaan_id` (`pertanyaan_id`),
-  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indeks untuk tabel `migrations`
@@ -436,74 +343,50 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `follower`
---
-ALTER TABLE `follower`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
-
---
 -- AUTO_INCREMENT untuk tabel `jawaban`
 --
 ALTER TABLE `jawaban`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
--- AUTO_INCREMENT untuk tabel `komentar_jawaban`
---
-ALTER TABLE `komentar_jawaban`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT untuk tabel `komentar_pertanyaan`
---
-ALTER TABLE `komentar_pertanyaan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `pertanyaan`
 --
 ALTER TABLE `pertanyaan`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT untuk tabel `pertanyaan_tag`
 --
 ALTER TABLE `pertanyaan_tag`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=238;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=192;
 
 --
 -- AUTO_INCREMENT untuk tabel `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tags`
 --
 ALTER TABLE `tags`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
-
---
--- Ketidakleluasaan untuk tabel `follower`
---
-ALTER TABLE `follower`
-  ADD CONSTRAINT `follower_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `jawaban`
@@ -511,20 +394,6 @@ ALTER TABLE `follower`
 ALTER TABLE `jawaban`
   ADD CONSTRAINT `jawaban_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `jawaban_ibfk_2` FOREIGN KEY (`pertanyaan_id`) REFERENCES `pertanyaan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `komentar_jawaban`
---
-ALTER TABLE `komentar_jawaban`
-  ADD CONSTRAINT `komentar_jawaban_ibfk_1` FOREIGN KEY (`jawaban_id`) REFERENCES `jawaban` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `komentar_jawaban_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `komentar_pertanyaan`
---
-ALTER TABLE `komentar_pertanyaan`
-  ADD CONSTRAINT `komentar_pertanyaan_ibfk_1` FOREIGN KEY (`pertanyaan_id`) REFERENCES `pertanyaan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `komentar_pertanyaan_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `pertanyaan`

@@ -29,7 +29,7 @@ class AuthController extends Controller
         $re = $request->only('email','password');
         if (Auth::attempt($re,$ingat)) {
             if (Auth()->user()->role == 'admin') {
-                return redirect('/profile');
+                return redirect('/');
             }else if (Auth()->user()->role == 'users') {
                 return redirect('/');
             }

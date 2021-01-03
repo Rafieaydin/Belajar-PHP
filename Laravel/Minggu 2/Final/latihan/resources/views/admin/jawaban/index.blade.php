@@ -41,7 +41,7 @@
                     @foreach ($jawaban as $jwb)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$jwb->pertanyaan->user->profile->nama_lengkap}}</td>
+                            <td>{{$jwb->user->profile->nama_lengkap}}</td>
                             <td>{!!$jwb->pertanyaan->judul!!}</td>
                             <td>{!!$jwb->pertanyaan->isi!!}</td>
                             <td>{!!$jwb->isi!!}</td>
@@ -75,7 +75,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Tambah Jawaban</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>

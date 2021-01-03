@@ -20,7 +20,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 class ForumController extends Controller
 {
     public function create(){
-        $pertanyaan = Pertanyaan::all();
+        $pertanyaan = Pertanyaan::orderBy('created_at','asc')->get();
         $user = User::where('id', '!=', Auth::user()->id)->get();
         return view('user.create', compact('pertanyaan','user'));
     }
@@ -56,7 +56,7 @@ class ForumController extends Controller
     }
     public function show($id){
         $pertanyaan = Pertanyaan::find($id);
-        $user = User::where('id', '!=', Auth::user()->id)->get();
+        $user = User::where('id', '!=', Auth::user()->id)->get(); // unutk menampilkan yanng tiak di follow
         return view('user.show', compact('pertanyaan','user'));
     }
     public function jawab(Request $request, $id){
@@ -109,6 +109,12 @@ class ForumController extends Controller
         $pertanyaan = Pertanyaan::find($id);
         return view('user.edit', compact('pertanyaan','user'));
     }
+    public function edit2($id)
+    {
+        $user = User::where('id', '!=', Auth::user()->id)->get();
+        $jawaban = Jawaban::find($id);
+        return view('user.edit2', compact('jawaban', 'user'));
+    }
     public function update(Request $request, $id){
         $request->validate([
             'judul' => 'required',
@@ -117,11 +123,28 @@ class ForumController extends Controller
         Pertanyaan::where('id', $id)
             ->update(['judul' => $request->judul, 'isi' => $request->isi]);
         Alert::success('Berhasil', 'Pertanyaan Berhasil di Update');
-        return redirect('/forum/show/'. $id)->with('sukses', 'data anda berhasil di update');
+        return redirect('/forum/show/'. $id);
+    }
+    public function update2(Request $request, $id)
+    {
+        $request->validate([
+            'isi' => 'required'
+        ]);
+        Jawaban::where('id', $id)
+            ->update(['isi' => $request->isi]);
+        Alert::success('Berhasil', 'Jawaban Berhasil di Update');
+        return redirect('/forum/show/' . $request->pertanyaan);
     }
     public function destroy($id){
         Pertanyaan::where('id', $id)->delete();
         Alert::success('Berhasil', 'Pertanyaan Berhasil di hapus');
-        return redirect('/forum/show'. $id)->with('eror', 'data anda berhasil di hapus');
+        return redirect('/')->with('eror', 'data anda berhasil di hapus');
+    }
+    public function destroy2($id)
+    {
+        Jawaban::where('id', $id)->delete();
+
+        Alert::success('Berhasil', 'Jawaban Berhasil di hapus');
+        return back()->with('eror', 'data anda berhasil di hapus');
     }
 }

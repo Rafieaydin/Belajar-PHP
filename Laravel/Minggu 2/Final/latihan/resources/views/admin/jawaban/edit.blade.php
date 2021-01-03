@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('title')
-    <h1>DATA TABLE PERjawabAN</h1>
+    <h1>DATA TABLE JAWABAN</h1>
 @endsection
 @section('header')
     <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
@@ -55,7 +55,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Tambah jawaban</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>

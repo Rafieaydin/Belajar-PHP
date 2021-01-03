@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   @yield('header')
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed" style="background:#e8eaf6; ">
 <!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
@@ -31,7 +31,7 @@
   @include('layout.partials.left_sidebar')
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="background:#e8eaf6; ">
+  <div class="content-wrapper"  style="background:#e8eaf6; ">
     <div class="row mr-0 pl-3">
       <!-- Main content -->
       <div class="col-md-8 mt-5 pt-4">

@@ -26,7 +26,6 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{-- {{ config('app.name', 'Laravel') }} --}}
                     <img src="{{asset('assets/img/ind.png')}}" alt="tumpukan meluap Logo" style="max-height: 45px; line-height: .8; margin-left: .8rem; margin-right: .5rem; margin-top: -3px;">
-                    <span class="brand-text font-weight-light" style="font-family: D-DIN;">tumpukan <span style="color: #000000; font-weight: bold">meluap</span></span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -64,7 +63,7 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href=""
                                         onclick="
                                         </a>
@@ -72,7 +71,7 @@
                                         <form id="logout-form" action="{}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                </div>
+                                </div> --}}
                             </li>
                         @endguest
                     </ul>

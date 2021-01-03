@@ -27,12 +27,20 @@
                     <span class="ml-2 font-weight-bold text-dark"><i class="fas fa-angle-down"></i></span>
                 </a>
                 <ul class="nav nav-treeview">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a href="#" class="nav-link font-weight-bold text-dark">
                             <i class="far fa-circle nav-icon"></i>
                             Your profile
                         </a>
+                    </li> --}}
+                    @if (Auth::user()->role==='admin')
+                    <li class="nav-item">
+                        <a href="/profile" class="nav-link font-weight-bold text-dark" onclick="">
+                            <i class="far fa-circle nav-icon"></i>
+                            Admin
+                        </a>
                     </li>
+                    @endif
                     <li class="nav-item">
                         <a href="/logout" class="nav-link font-weight-bold text-dark" onclick="">
                             <i class="far fa-circle nav-icon"></i>
