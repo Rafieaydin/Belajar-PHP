@@ -11,7 +11,11 @@ class Pertanyaan extends Model
     protected $fillable = ['id','judul','isi','jawaban_tepat_id','profile_id'];
     use HasFactory;
     // relasi ke profile
-    public function profile(){
+    public function user(){
       return  $this->belongsTo(Profile::class);
+    }
+    public function profile()
+    {
+        return  $this->belongsTo(Profile::class);
     }
 }

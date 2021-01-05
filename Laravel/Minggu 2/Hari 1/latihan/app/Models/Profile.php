@@ -17,4 +17,5 @@ class Profile extends Model
     public function pertanyaan(){
         return $this->hasMany(Pertanyaan::class);
     }
+
 }

@@ -70,7 +70,7 @@
                 </a>
         </li>
         <li class="nav-item">
-                    <a href="{{url('/forum')}}" class="nav-link">
+                    <a href="{{url('/')}}" class="nav-link">
                     <i class="fa fa-arrow-left nav-icon"></i>
                     <p>kembali ke forum</p>
                 </a>

@@ -20,7 +20,7 @@ use GuzzleHttp\Middleware;
 
 // Route::get('/', [AuthController::class, 'home']);
 // Login
-Route::get('/login', [AuthController::class, 'login']);
+Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/postlogin', [AuthController::class, 'postlogin']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/postregister', [AuthController::class, 'postregister']);
