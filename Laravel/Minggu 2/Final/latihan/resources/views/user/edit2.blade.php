@@ -16,15 +16,16 @@
                 <input type="text" name="pertanyaan" value="{{$jawaban->pertanyaan->id}}" hidden>
                  <div class="form-group">
                      <label for="judul">Pertanyaan</label>
-                    <input type="text" class="form-control  @error('judul') is-invalid @enderror" name="judul" placeholder="masukan judul" id="judul" value="{{$jawaban->pertanyaan->judul}}" disabled>
+                    <input type="text" class="form-control  @error('judul') is-invalid @enderror" name="judul" placeholder="masukan judul" id="judul" value="{{$jawaban->pertanyaan->judul}}" readonly>
                 </div>
                 <div class="form-group">
                         <label for="exampleInputPassword1">Masukan jawaban anda</label>
-                        <textarea name="isi" id="isi" class="form-control my-editor">{{$jawaban->isi}}</textarea>
+                        <textarea name="isi" id="isi" class="form-control my-editor">{!!$jawaban->isi!!}</textarea>
                         @error('isi')
                         <div class="invalid-feedback mt-2">{{ $message }}</div>
                         @enderror
                     </div>
+                    <a href="/forum/show/{{$jawaban->pertanyaan->id}}" type="submit" class="btn btn-light mt-3">kembali</a>
                 <button type="submit" class="btn btn-light mt-3">Submit</button>
             </div>
             <!-- /.card-body -->

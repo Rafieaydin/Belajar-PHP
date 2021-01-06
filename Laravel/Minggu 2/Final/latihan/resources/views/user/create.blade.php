@@ -27,7 +27,8 @@
                     <label for="tags">Hashtag</label>
                     <input type="text" class="form-control" id="tags" name="tags" placeholder="contoh : satu,sdua,tiga">
                 </div>
-                   <button type="submit" class="btn btn-light mt-3">Submit</button>
+                <a href="/" type="submit" class="btn btn-light mt-3">kembali</a>
+                <button type="submit" class="btn btn-light mt-3">Submit</button>
             </div>
             <!-- /.card-body -->
         </form>

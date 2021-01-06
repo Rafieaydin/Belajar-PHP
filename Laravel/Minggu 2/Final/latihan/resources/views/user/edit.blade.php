@@ -29,7 +29,8 @@
                                 <button class="btn btn-primary btn-sm">{{$tag->tag_name ? $tag->tag_name:'No tags' }}</button>
                                 @endforeach
                 </div>
-                   <button type="submit" class="btn btn-light mt-3">Submit</button>
+                    <a href="/forum/show/{{$pertanyaan->id}}" type="submit" class="btn btn-light mt-3">kembali</a>
+                <button type="submit" class="btn btn-light mt-3">Submit</button>
             </div>
             <!-- /.card-body -->
         </form>

@@ -19,7 +19,7 @@ class Pertanyaan extends Migration
             $table->string('isi');
             $table->timestamps();
             $table->integer('jawaban_tepat_id')->nullable();
-            $table->integer('profile_id');
+            $table->integer('user_id');
         });
     }
 

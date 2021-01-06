@@ -18,7 +18,7 @@ class Jawaban extends Migration
             $table->string('isi');
             $table->timestamps();
             $table->unsignedBigInteger('pertanyaan_id');
-            $table->unsignedBigInteger('profile_id');
+            $table->unsignedBigInteger('user_id');
         });
     }
 
