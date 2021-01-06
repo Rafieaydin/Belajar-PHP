@@ -19,7 +19,10 @@ class Pertanyaan extends Migration
             $table->string('isi');
             $table->timestamps();
             $table->integer('jawaban_tepat_id')->nullable();
-            $table->integer('user_id');
+            $table->bigInteger('user_id')->unsigned();
+        });
+        Schema::table('pertanyaan', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate("cascade");
         });
     }
 

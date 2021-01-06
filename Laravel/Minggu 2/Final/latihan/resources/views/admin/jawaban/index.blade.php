@@ -98,7 +98,7 @@
             <label for="inputGroupSelect01">Pertanyaan</label>
             <select name="pertanyaan" id="inputGroupSelect01" class="form-control">
             @foreach ($pertanyaan as $per)
-                <option value="{{$per->id}}">{{$per->isi}}</option>
+                <option value="{{$per->id}}">{!!$per->isi!!}</option>
             @endforeach
             </select>
             @error('Pertanyaan')

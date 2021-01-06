@@ -20,6 +20,12 @@ class Jawaban extends Migration
             $table->unsignedBigInteger('pertanyaan_id');
             $table->unsignedBigInteger('user_id');
         });
+        Schema::table('jawaban', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate("cascade");
+        });
+        Schema::table('jawaban', function (Blueprint $table) {
+            $table->foreign('pertanyaan_id')->references('id')->on('pertanyaan')->onDelete('cascade')->onUpdate("cascade");
+        });
     }
 
     /**

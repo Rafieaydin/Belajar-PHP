@@ -20,6 +20,12 @@ class KomentarJawaban extends Migration
             $table->unsignedBigInteger('jawaban_id');
             $table->unsignedBigInteger('user_id');
         });
+        Schema::table('komentar_jawaban', function (Blueprint $table) {
+            $table->foreign('jawaban_id')->references('id')->on('jawaban')->onDelete('cascade')->onUpdate("cascade");
+        });
+        Schema::table('komentar_jawaban', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate("cascade");
+        });
     }
 
     /**

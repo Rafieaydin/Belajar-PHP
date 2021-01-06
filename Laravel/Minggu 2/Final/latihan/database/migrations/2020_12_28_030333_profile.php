@@ -16,10 +16,13 @@ class Profile extends Migration
         Schema::create('profile', function (Blueprint $table) {
             $table->id();
             $table->string('nama_lengkap');
-            $table->string('phone');
-            $table->string('foto');
+            $table->string('phone')->nullable();
+            $table->string('foto')->default("default.jpg");
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
+        });
+        Schema::table('profile', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate("cascade");
         });
     }
 

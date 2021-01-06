@@ -43,21 +43,6 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 //middleware untuk role admin
 Route::middleware(['web','auth', 'role:admin'])->group(function () {
-    // forum admin
-    // Route::get('/forum', [tampilController::class, 'index']);
-    // Route::get('/forum/create', [ForumController::class, 'create']);
-    // Route::get('/forum/show/{id}', [ForumController::class, 'show']);
-    // Route::post('/forum/store', [ForumController::class, 'store']);
-    // Route::post('/forum/jawaban/{id}', [ForumController::class, 'jawab']);
-    // Route::post('/forum/komentar_pertanyaan/{id}', [ForumController::class, 'komentar_pertanyaan']);
-    // Route::post('/forum/komentar_jawaban/{id}', [ForumController::class, 'komentar_jawaban']);
-    // Route::get('/forum/edit/{id}', [ForumController::class, 'edit']);
-    // Route::post('/forum/update/{id}', [ForumController::class, 'update']);
-    // Route::post('/forum/hapus/{id}', [ForumController::class, 'destroy']);
-    // Route::get('/following/{id}', [ForumController::class, 'follower']);
-    // Route::get('/unfollow/{id}', [ForumController::class, 'unfollow']);
-
-
     Route::get('/', [profileController::class, 'index']);
     // table pertanyaan
     Route::resource('Pertanyaan', PertanyaanController::class);
